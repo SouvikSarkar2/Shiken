@@ -5,11 +5,9 @@ import MainButton from "../Button";
 import Link from "next/link";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
-import Image from "next/image";
 import { BarChart2, Heart, Home, User, User2 } from "lucide-react";
 
-const Navbar = () => {
-  const session = getSession();
+const Navbar = ({ session }) => {
   const [isActive, setIsActive] = useState("Home");
 
   return (
@@ -17,13 +15,13 @@ const Navbar = () => {
       <div>
         <p>
           <span>Hello </span>
-          <span className="px-1"> {session?.user?.name}</span>
+          <span className="px-1"> {session.user.name}</span>
         </p>
       </div>
       <div>
         <MainButton type="signout" />
       </div>
-      <div className="text-[#015055] absolute font-semibold flex items-center justify-between bottom-10 sm:top-6 sm:right-[15dvw] bg-[#015055] px-[2.5px] py-[2.5px]  rounded-full w-[300px] h-[45px]">
+      <div className="text-[#015055] fixed sm:absolute font-semibold flex items-center justify-between bottom-10 sm:top-5 sm:right-[15dvw] bg-[#015055] px-[2.5px] py-[2.5px]  rounded-full w-[300px] h-[45px]">
         <Link onClick={() => setIsActive("Home")} href="/home">
           {isActive === "Home" ? (
             <span className="flex gap-1 bg-white px-[16px] py-[8px] rounded-full ">

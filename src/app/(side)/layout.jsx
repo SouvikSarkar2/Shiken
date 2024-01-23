@@ -8,10 +8,5 @@ export default async function SideLayout({ children }) {
     redirect("/auth/signin");
   }
 
-  return (
-    <div>
-      <div>Side Navbar</div>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }
