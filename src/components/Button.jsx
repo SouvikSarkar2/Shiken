@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { signIn, signOut } from "next-auth/react";
 import { redirect } from "next/navigation";
+import { ArrowLeftCircle } from "lucide-react";
 
 const MainButton = ({ type }) => {
   async function handleSignin() {
@@ -38,6 +39,29 @@ const MainButton = ({ type }) => {
     return (
       <div>
         <Button onClick={() => handleSignOut()}>Signout</Button>
+      </div>
+    );
+
+  if (type === "next")
+    return (
+      <div className="p-4">
+        <Button className="bg-[#015055] text-white">Next</Button>
+      </div>
+    );
+
+  if (type === "prev")
+    return (
+      <div className="p-4">
+        <Button className="bg-[#015055] text-white">Prev</Button>
+      </div>
+    );
+
+  if (type === "back")
+    return (
+      <div>
+        <Button className="bg-[#015055]">
+          <ArrowLeftCircle />
+        </Button>
       </div>
     );
 };

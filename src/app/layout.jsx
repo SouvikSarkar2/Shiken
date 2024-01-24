@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth";
 import "./globals.css";
 import SessionProvider from "@/components/main/SessionProvider";
+import { Suspense } from "react";
 
 export const metadata = {
   icons: {
@@ -15,7 +16,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SessionProvider session={session}>{children}</SessionProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <SessionProvider session={session}>{children}</SessionProvider>
+        </Suspense>
       </body>
     </html>
   );

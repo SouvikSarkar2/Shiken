@@ -27,11 +27,18 @@ export const getQuestions = async ({ name, id }) => {
     const topics = await Topic.findOne({
       name,
     });
-    console.log("id :", id);
-    const question = topics.questions.reduce((question) => {
-      console.log(question._id.toString());
+    const question = topics.questions.filter((question) => {
+      try {
+        console.log("id :", id);
+        console.log("question :", question);
+        return question._id.toString() === id;
+      } catch (error) {
+        console.error("Error processing question:", question, error);
+        return false;
+      }
     });
     console.log(question);
+    return question;
   } catch (error) {
     console.log("Error getting Questions Data : ", error);
   }

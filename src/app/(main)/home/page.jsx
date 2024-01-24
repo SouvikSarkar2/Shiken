@@ -17,7 +17,7 @@ const page = async () => {
   console.log(semesters);
 
   return (
-    <main className="bg-[#e1f396] h-full">
+    <div className="bg-[#e1f396] h-screen">
       <div className="flex flex-col justify-start h-full">
         <div className="flex justify-between flex-col sm:flex-row">
           <p className="text-3xl sm:text-4xl p-5 font-bold text-[#015055]">
@@ -52,7 +52,7 @@ const page = async () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

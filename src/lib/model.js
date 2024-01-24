@@ -19,37 +19,38 @@ const semesterSchema = new Schema({
   subjects: [subjectSchema],
 });
 
-const questionSchema = new Schema({
-  title: {
-    type: String,
-  },
-  options: [
-    {
-      id: Number,
-      option: String,
-    },
-    {
-      id: Number,
-      option: String,
-    },
-    {
-      id: Number,
-      option: String,
-    },
-    {
-      id: Number,
-      option: String,
-    },
-  ],
-  correctOption: Number,
-  description: String,
-});
+// const questionSchema = new Schema({
+//   title: {
+//     type: String,
+//   },
+//   options: [
+//     {
+//       id: Number,
+//       option: String,
+//     },
+//     {
+//       id: Number,
+//       option: String,
+//     },
+//     {
+//       id: Number,
+//       option: String,
+//     },
+//     {
+//       id: Number,
+//       option: String,
+//     },
+//   ],
+//   correctOption: Number,
+//   description: String,
+//   id: Number,
+// });
 
 const topicSchema = new Schema({
   name: {
     type: String,
   },
-  questions: [questionSchema],
+  questions: { type: Object },
 });
 
 export const Topic =
