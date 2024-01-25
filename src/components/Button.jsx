@@ -17,7 +17,6 @@ const MainButton = ({ type }) => {
     await signOut("google", {
       callbackUrl: "/",
     });
-    redirect("/");
   }
 
   if (type === "continue")
