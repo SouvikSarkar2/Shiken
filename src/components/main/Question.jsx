@@ -11,7 +11,7 @@ const Question = ({ question, options }) => {
   return (
     <div className="flex justify-start sm:justify-evenly h-full items-center flex-col sm:flex-row w-full">
       <div className="sm:flex sm:justify-center sm:items-center ">
-        <div className=" h-[340px] sm:h-[400px] sm:w-[380px] bg-white rounded-3xl m-3 p-3 w-[340px] flex flex-col mt-[80px] sm:mt-0">
+        <div className=" min-h-[340px] sm:min-h-[400px] sm:w-[380px] bg-white rounded-3xl m-3 p-3 w-[340px] flex flex-col mt-[80px] sm:mt-0">
           <div className="font-semibold">Question {question._id}</div>
           <div>
             <p className="text-lg font-semibold py-2">{question.title}</p>
@@ -31,7 +31,7 @@ const Question = ({ question, options }) => {
             ))} */}
             <div
               onClick={() => setIsSelected(1)}
-              className={`h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] hover:bg-[#015055] overflow-hidden hover:text-white ${
+              className={`min-h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] overflow-hidden sm:hover:text-white ${
                 isSelected === 1
                   ? `${
                       isSelected === question.correctOption
@@ -45,7 +45,7 @@ const Question = ({ question, options }) => {
             </div>
             <div
               onClick={() => setIsSelected(2)}
-              className={`h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`min-h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] sm:hover:text-white ${
                 isSelected === 2
                   ? `${
                       isSelected === question.correctOption
@@ -59,7 +59,7 @@ const Question = ({ question, options }) => {
             </div>
             <div
               onClick={() => setIsSelected(3)}
-              className={`h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`min-h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] sm:hover:text-white ${
                 isSelected === 3
                   ? `${
                       isSelected === question.correctOption
@@ -73,7 +73,7 @@ const Question = ({ question, options }) => {
             </div>
             <div
               onClick={() => setIsSelected(4)}
-              className={`h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`min-h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] sm:hover:text-white ${
                 isSelected === 4
                   ? `${
                       isSelected === question.correctOption

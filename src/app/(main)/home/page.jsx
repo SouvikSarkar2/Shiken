@@ -17,7 +17,7 @@ const page = async () => {
   //console.log(semesters);
 
   return (
-    <div className="bg-[#e1f396] h-screen">
+    <div className="bg-[#e1f396]  ">
       <div className="flex flex-col justify-start h-full">
         <div className="flex justify-between flex-col sm:flex-row">
           <p className="text-3xl sm:text-4xl p-5 font-bold text-[#015055]">
@@ -26,10 +26,10 @@ const page = async () => {
           <div className="flex items-center p-6 justify-end gap-3">
             <div>
               <Select>
-                <SelectTrigger className="w-[120px] bg-[#015055] text-white">
+                <SelectTrigger className="w-[120px] bg-[#015055] text-white z-10">
                   <SelectValue placeholder="Semester" />
                 </SelectTrigger>
-                <SelectContent className="bg-[#015055] text-white">
+                <SelectContent className="bg-[#015055] text-white z-10">
                   <SelectItem value="light">Semester 4</SelectItem>
                   <SelectItem value="dark">Semester 5</SelectItem>
                   <SelectItem value="system">Semester 6</SelectItem>

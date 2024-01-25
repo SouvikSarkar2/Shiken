@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { signIn, signOut } from "next-auth/react";
-import { redirect } from "next/navigation";
 import { ArrowLeftCircle } from "lucide-react";
+import { redirect } from "next/navigation";
 
 const MainButton = ({ type }) => {
   async function handleSignin() {
@@ -14,7 +14,9 @@ const MainButton = ({ type }) => {
   }
 
   async function handleSignOut() {
-    await signOut();
+    await signOut("google", {
+      callbackUrl: "/",
+    });
     redirect("/");
   }
 
@@ -31,14 +33,21 @@ const MainButton = ({ type }) => {
   if (type === "signin")
     return (
       <div>
-        <Button onClick={() => handleSignin()}>Signin with Google</Button>
+        <Button
+          className="p-8 text-xl text-[#e1f396] bg-[#015055] rounded-xl hover:bg-[#e1f396] hover:text-[#015055]"
+          onClick={() => handleSignin()}
+        >
+          Signin with Google
+        </Button>
       </div>
     );
 
   if (type === "signout")
     return (
       <div>
-        <Button onClick={() => handleSignOut()}>Signout</Button>
+        <Button className="bg-[#015055]" onClick={() => handleSignOut()}>
+          Signout
+        </Button>
       </div>
     );
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex justify-center text-white bg-[#015055]">
+    <div className="flex justify-center text-white bg-[#015055] h-full w-full">
       <div className=" h-dvh flex flex-col md:flex-row justify-evenly items-center w-[1366px] max-w-[1366px]">
         <div className="max-w-[768px] flex flex-col justify-evenly md:justify-around h-full max-h-[200px] md:max-h-[568px]">
           <div className="text-4xl md:text-5xl max-w-[400px] p-4  h-full">
@@ -22,7 +22,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-between ml-[90px] md:ml-0 ">
+        <div className="flex flex-col justify-between ml-[50px] md:ml-0 ">
           <div>
             <div className="flex justify-center items-center border-4 md:border-[7px] border-s-[#e1f396] border-b-[#e1f396] h-[300px] w-[300px] md:h-[400px] md:w-[400px]">
               <div className="flex justify-center items-center border-4 md:border-[7px] border-s-[#e1f396] border-b-[#e1f396] h-[250px] w-[250px] md:h-[350px] md:w-[350px]">

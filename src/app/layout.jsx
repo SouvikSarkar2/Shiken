@@ -15,7 +15,7 @@ export default async function RootLayout({ children }) {
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body>
+      <body className="h-screen bg-[#e1f396]">
         <Suspense fallback={<div>Loading...</div>}>
           <SessionProvider session={session}>{children}</SessionProvider>
         </Suspense>

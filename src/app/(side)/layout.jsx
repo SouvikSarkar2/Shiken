@@ -8,5 +8,5 @@ export default async function SideLayout({ children }) {
     redirect("/auth/signin");
   }
 
-  return <div>{children}</div>;
+  return <div className="min-h-screen bg-slate-100">{children}</div>;
 }

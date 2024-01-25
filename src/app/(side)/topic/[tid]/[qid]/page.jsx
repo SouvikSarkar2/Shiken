@@ -27,7 +27,7 @@ const page = async ({ params }) => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="flex flex-col justify-start items-center h-screen bg-slate-100 w-auto">
+    <div className="flex flex-col justify-between items-center min-h-screen bg-slate-100 w-screen">
       <div className="flex justify-start p-4 w-full">
         <Link href={`/topic/${name}`}>
           <MainButton type="back" />
@@ -38,10 +38,12 @@ const page = async ({ params }) => {
       </div>
       <Question question={question} options={options} />
       <div className="flex justify-between w-full">
-        {params.qid > 1 && (
+        {params.qid > 1 ? (
           <Link href={`/topic/${name}/${parseInt(params.qid) - 1}`}>
             <MainButton type="prev" />
           </Link>
+        ) : (
+          <div></div>
         )}
         <Link
           href={`/topic/${name}/${parseInt(params.qid) + 1}`}

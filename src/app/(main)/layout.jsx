@@ -10,7 +10,7 @@ export default async function MainLayout({ children }) {
     redirect("/auth/signin");
   }
   return (
-    <div className="relative">
+    <div className="relative ">
       <Navbar session={session} />
       {children}
     </div>
