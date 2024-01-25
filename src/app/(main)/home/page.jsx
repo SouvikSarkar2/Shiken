@@ -14,7 +14,7 @@ import { redirect } from "next/navigation";
 
 const page = async () => {
   const semesters = await getSemesters({ semester: 4 });
-  console.log(semesters);
+  //console.log(semesters);
 
   return (
     <div className="bg-[#e1f396] h-screen">

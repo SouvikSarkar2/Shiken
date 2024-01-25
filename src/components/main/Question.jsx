@@ -1,6 +1,5 @@
 "use client";
 
-import { CloudCog } from "lucide-react";
 import { useState } from "react";
 
 const Question = ({ question, options }) => {
@@ -32,7 +31,7 @@ const Question = ({ question, options }) => {
             ))} */}
             <div
               onClick={() => setIsSelected(1)}
-              className={`h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] hover:bg-[#015055] overflow-hidden hover:text-white ${
                 isSelected === 1
                   ? `${
                       isSelected === question.correctOption
@@ -42,11 +41,11 @@ const Question = ({ question, options }) => {
                   : ``
               }`}
             >
-              <p>{options[0].option}</p>
+              <p className="p-6 text-sm sm:text-md">{options[0].option}</p>
             </div>
             <div
               onClick={() => setIsSelected(2)}
-              className={`h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
                 isSelected === 2
                   ? `${
                       isSelected === question.correctOption
@@ -56,11 +55,11 @@ const Question = ({ question, options }) => {
                   : ``
               }`}
             >
-              <p>{options[1].option}</p>
+              <p className="p-6 text-sm sm:text-md">{options[1].option}</p>
             </div>
             <div
               onClick={() => setIsSelected(3)}
-              className={`h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
                 isSelected === 3
                   ? `${
                       isSelected === question.correctOption
@@ -70,11 +69,11 @@ const Question = ({ question, options }) => {
                   : ``
               }`}
             >
-              <p>{options[2].option}</p>
+              <p className="p-6 text-sm sm:text-md">{options[2].option}</p>
             </div>
             <div
               onClick={() => setIsSelected(4)}
-              className={`h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
+              className={`h-[40px] flex justify-center items-center rounded-full overflow-hidden  border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white ${
                 isSelected === 4
                   ? `${
                       isSelected === question.correctOption
@@ -84,7 +83,7 @@ const Question = ({ question, options }) => {
                   : ``
               }`}
             >
-              <p>{options[3].option}</p>
+              <p className="p-6 text-sm sm:text-md">{options[3].option}</p>
             </div>
           </div>
         </div>
@@ -93,7 +92,9 @@ const Question = ({ question, options }) => {
       {isSelected ? (
         isSelected === question.correctOption ? (
           <div>
-            <div className="m-4 font-semibold p-5">Correct Answer</div>
+            <div className="m-4 font-bold p-5 text-xl text-[#a8bd54]">
+              Correct Answer
+            </div>
             <div className="m-4 font-semibold p-5 ">
               <div>
                 <p>Explanation : </p>
@@ -103,7 +104,7 @@ const Question = ({ question, options }) => {
           </div>
         ) : (
           <div>
-            <div className="m-4 font-semibold p-5">Wrong Answer</div>
+            <div className="m-4 font-bold p-5 text-red-500">Wrong Answer</div>
             <div className="m-4 font-semibold p-5 ">
               <div>
                 <p>Explanation : </p>

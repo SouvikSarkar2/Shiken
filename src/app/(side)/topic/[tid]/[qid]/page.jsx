@@ -4,7 +4,7 @@ import { getQuestions } from "@/lib/data";
 import Link from "next/link";
 
 const page = async ({ params }) => {
-  console.log(params);
+  //console.log(params);
   const name = decodeURIComponent(params.tid);
   const data = await getQuestions({ name, id: params.qid });
 

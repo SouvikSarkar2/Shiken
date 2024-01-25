@@ -6,14 +6,14 @@ import Link from "next/link";
 const page = async ({ params }) => {
   const name = decodeURIComponent(params.tid);
   const topic = await getTopics({ name });
-  console.log("topic :", topic);
+  //console.log("topic :", topic);
 
   if (!topic) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="bg-slate-200 h-screen">
+    <div className="bg-slate-200 min-h-screen">
       <div className="p-6">
         <Link href={`/home`}>
           <MainButton type="back" />
