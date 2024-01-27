@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 export default async function MainLayout({ children }) {
   const session = await getServerSession();
-  console.log("Session from main :", session);
+  //console.log("Session from main :", session);
 
   if (!session) {
     redirect("/auth/signin");

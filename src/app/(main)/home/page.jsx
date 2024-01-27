@@ -1,54 +1,43 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-
-import { AreaChart, Pyramid } from "lucide-react";
+import SearchForm from "@/components/main/SearchForm";
 import SubjectCard from "@/components/main/SubjectCard";
-import { getSemesters, getTopics } from "@/lib/data";
-import { redirect } from "next/navigation";
+import { getSemesters } from "@/lib/data";
 
-const page = async () => {
-  const semesters = await getSemesters({ semester: 4 });
+const page = async ({ searchParams }) => {
+  console.log(searchParams);
+  const semesters = await getSemesters({ semester: searchParams.sm | 4 });
   //console.log(semesters);
-
+  let result = semesters?.subjects;
+  if (searchParams.sb) {
+    result = semesters?.subjects?.filter((semester) =>
+      semester.name.toLowerCase().includes(searchParams.sb.toLowerCase())
+    );
+  }
+  console.log(result);
   return (
-    <div className="bg-[#e1f396]  ">
+    <div className="bg-[#e1f396]">
       <div className="flex flex-col justify-start h-full">
         <div className="flex justify-between flex-col sm:flex-row">
-          <p className="text-3xl sm:text-4xl p-5 font-bold text-[#015055]">
+          <p className="text-3xl sm:text-4xl p-5 font-bold text-[#015055] font-mono">
             What Subject do you want to improve today?
           </p>
-          <div className="flex items-center p-6 justify-end gap-3">
-            <div>
-              <Select>
-                <SelectTrigger className="w-[120px] bg-[#015055] text-white z-10">
-                  <SelectValue placeholder="Semester" />
-                </SelectTrigger>
-                <SelectContent className="bg-[#015055] text-white z-10">
-                  <SelectItem value="light">Semester 4</SelectItem>
-                  <SelectItem value="dark">Semester 5</SelectItem>
-                  <SelectItem value="system">Semester 6</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div>
-              <Input
-                placeholder="Search Subject"
-                className="border-2 border-[#015055] text-[#015055] sm:w-[300px]"
-              />
-            </div>
-          </div>
+          <SearchForm />
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-start items-start">
           <div className="flex justify-center items-center pt-6 flex-wrap max-w-[1366px]">
-            {semesters.subjects.map((subject) => (
-              <SubjectCard subject={subject} key={subject._id} />
-            ))}
+            {result.length === 0 && (
+              <div className="h-screen w-screen flex justify-center items-start text-xl sm:text-3xl text-[#015055] font-bold">
+                No Subject Found
+              </div>
+            )}
+            {result ? (
+              result?.map((subject) => (
+                <SubjectCard subject={subject} key={subject._id} />
+              ))
+            ) : (
+              <div className="h-screen w-screen flex justify-center items-start text-xl sm:text-3xl text-[#015055] font-bold">
+                No Subject Found
+              </div>
+            )}
           </div>
         </div>
       </div>
