@@ -24,7 +24,7 @@ const page = async ({ searchParams }) => {
         </div>
         <div className="flex justify-start items-start">
           <div className="flex justify-center items-center pt-6 flex-wrap max-w-[1366px]">
-            {result.length === 0 && (
+            {result?.length === 0 && (
               <div className="h-screen w-screen flex justify-center items-start text-xl sm:text-3xl text-[#015055] font-bold">
                 No Subject Found
               </div>
