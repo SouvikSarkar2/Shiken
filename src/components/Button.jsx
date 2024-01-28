@@ -74,7 +74,12 @@ const MainButton = ({ type }) => {
       return (
         <div>
           <Button className="bg-[#015055]" type="disable">
-            <Loader />
+            <Image
+              src={"/loading.svg"}
+              height={30}
+              width={30}
+              alt="loading..."
+            />
           </Button>
         </div>
       );
