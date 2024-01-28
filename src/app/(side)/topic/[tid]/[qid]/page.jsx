@@ -2,8 +2,7 @@ import MainButton from "@/components/Button";
 import Question from "@/components/main/Question";
 import { getQuestions } from "@/lib/data";
 import Link from "next/link";
-//aksdhfkjkhgkdfj
-//aksjdhfjkhsjkdhfjk
+
 const page = async ({ params }) => {
   //console.log(params);
 

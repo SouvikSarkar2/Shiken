@@ -3,11 +3,15 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { signIn, signOut } from "next-auth/react";
-import { ArrowLeftCircle } from "lucide-react";
-import { redirect } from "next/navigation";
+import { ArrowLeftCircle, Loader } from "lucide-react";
+import { redirect, useRouter } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import { useState } from "react";
 
 const MainButton = ({ type }) => {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
   async function handleSignin() {
     await signIn("google", {
       callbackUrl: "/home",
@@ -66,13 +70,27 @@ const MainButton = ({ type }) => {
     );
 
   if (type === "back")
-    return (
-      <div>
-        <Button className="bg-[#015055]">
-          <ArrowLeftCircle />
-        </Button>
-      </div>
-    );
+    if (loading) {
+      return (
+        <div>
+          <Button className="bg-[#015055]" type="disable">
+            <Loader />
+          </Button>
+        </div>
+      );
+    }
+  return (
+    <div>
+      <Button
+        className="bg-[#015055]"
+        onClick={() => {
+          setLoading(true);
+        }}
+      >
+        <ArrowLeftCircle />
+      </Button>
+    </div>
+  );
 };
 
 export default MainButton;
