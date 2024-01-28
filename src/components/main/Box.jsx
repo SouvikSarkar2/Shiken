@@ -1,8 +1,11 @@
 import { User } from "@/lib/model";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
 const Box = async ({ index, name, id }) => {
-  const userData = await User.findOne({});
+  const session = await getServerSession();
+  const email = session?.user?.email;
+  const userData = await User.findOne({ email });
   const isAttempted = userData?.activity?.[name]?.[id];
   //console.log(isAttempted);
   return (
