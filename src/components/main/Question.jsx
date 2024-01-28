@@ -1,9 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { updateActivity } from "@/lib/action";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Question = ({ question, options }) => {
   const [isSelected, setIsSelected] = useState(null);
+  const params = useParams();
+  //console.log("params :", params);
+  const tid = decodeURIComponent(params.tid);
+  const qid = params.qid;
+  useEffect(() => {
+    if (isSelected) {
+      updateActivity({ tid, qid });
+    }
+  }, [isSelected]);
 
   if (!question || !options) {
     return <div>Loading...</div>;

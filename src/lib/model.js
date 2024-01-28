@@ -53,8 +53,16 @@ const topicSchema = new Schema({
   questions: { type: Object },
 });
 
+const userSchema = new Schema({
+  name: String,
+  email: String,
+  activity: Object,
+});
+
 export const Topic =
   mongoose.models.Topic || mongoose.model("Topic", topicSchema);
 
 export const Semester =
   mongoose.models.Semester || mongoose.model("Semester", semesterSchema);
+
+export const User = mongoose.models.User || mongoose.model("User", userSchema);

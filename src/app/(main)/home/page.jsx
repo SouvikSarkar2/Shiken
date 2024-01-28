@@ -12,7 +12,7 @@ const page = async ({ searchParams }) => {
       semester.name.toLowerCase().includes(searchParams.sb.toLowerCase())
     );
   }
-  console.log(result);
+  //console.log(result);
   return (
     <div className="bg-[#e1f396]">
       <div className="flex flex-col justify-start h-full">

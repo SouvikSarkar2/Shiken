@@ -2,9 +2,11 @@ import MainButton from "@/components/Button";
 import Question from "@/components/main/Question";
 import { getQuestions } from "@/lib/data";
 import Link from "next/link";
-
+//aksdhfkjkhgkdfj
+//aksjdhfjkhsjkdhfjk
 const page = async ({ params }) => {
   //console.log(params);
+
   const name = decodeURIComponent(params.tid);
   const data = await getQuestions({ name, id: params.qid });
 
@@ -12,7 +14,7 @@ const page = async ({ params }) => {
     return (
       <div className="bg-slate-100 h-screen justify-center flex items-center text-3xl font-bold p-8 text-[#015055] sm:text-5xl">
         More Questions Coming Soon...
-        <Link className="ml-10" href={`/topic/${name}`}>
+        <Link className="ml-10" href={`/topic/${name}`} prefetch={false}>
           <MainButton type="back" />
         </Link>
       </div>
@@ -29,11 +31,11 @@ const page = async ({ params }) => {
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-slate-100 w-screen">
       <div className="flex justify-start p-4 w-full">
-        <Link href={`/topic/${name}`}>
+        <Link href={`/topic/${name}`} prefetch={false}>
           <MainButton type="back" />
         </Link>
       </div>
-      <div className="h-[70px] flex justify-start items-center text-black font-bold text-xl">
+      <div className="h-[70px] flex justify-start items-center text-[#015055] font-bold text-xl sm:text-3xl">
         {name}
       </div>
       <Question question={question} options={options} />

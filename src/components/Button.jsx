@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { signIn, signOut } from "next-auth/react";
 import { ArrowLeftCircle } from "lucide-react";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const MainButton = ({ type }) => {
   async function handleSignin() {
