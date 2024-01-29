@@ -10,7 +10,7 @@ const page = async () => {
   const email = session.user.email;
   await connectToDb();
   const user = await User.findOne({ email });
-  console.log(user);
+  //console.log(user);
 
   if (!user) {
     return <div>Loading...</div>;

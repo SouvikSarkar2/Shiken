@@ -85,14 +85,15 @@ export const toggleLikes = async ({ params }) => {
     const topicIdx = likedTopics.indexOf(topic);
     if (topicIdx === -1) {
       likedTopics.push(topic);
-      console.log(`Topic '${topic}' added to liked topics.`);
+      await user.save();
+      return `${topic} added to liked topics.`;
     } else {
       likedTopics.splice(topicIdx, 1);
-      console.log(`Topic '${topic}' removed from liked topics.`);
+      await user.save();
+      return `${topic} removed from liked topics.`;
     }
     //console.log(likedTopics);
     //console.log(user);
-    await user.save();
   } catch (error) {
     console.log("Error Toggling Likes :", error);
   }

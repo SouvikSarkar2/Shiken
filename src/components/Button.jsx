@@ -7,6 +7,7 @@ import { ArrowLeftCircle, Heart } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { toggleLikes } from "@/lib/action";
+import toast from "react-hot-toast";
 
 const MainButton = ({ type }) => {
   const [loading, setLoading] = useState(false);
@@ -26,8 +27,21 @@ const MainButton = ({ type }) => {
   }
 
   async function handleLikes() {
-    await toggleLikes({ params });
+    const res = await toggleLikes({ params });
     router.refresh();
+    //console.log("res :", res);
+    toast.success(res, {
+      duration: 3000,
+      style: {
+        border: "1px solid #015055",
+        padding: "16px",
+        color: "#015055",
+      },
+      iconTheme: {
+        primary: "#015055",
+        secondary: "#FFFAEE",
+      },
+    });
   }
 
   if (type === "notLiked") {

@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import "./globals.css";
 import SessionProvider from "@/components/main/SessionProvider";
 import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   icons: {
@@ -17,7 +18,10 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body className="h-screen bg-[#e1f396]">
         <Suspense fallback={<div>Loading...</div>}>
-          <SessionProvider session={session}>{children}</SessionProvider>
+          <SessionProvider session={session}>
+            <Toaster />
+            {children}
+          </SessionProvider>
         </Suspense>
       </body>
     </html>
