@@ -2,31 +2,74 @@
 
 import { getServerSession } from "next-auth";
 import { User } from "./model";
+import { connectToDb } from "./util";
 
 export const updateActivity = async ({ tid, qid }) => {
   //console.log("tid :", tid);
   //console.log("qid :", qid);
-  const session = await getServerSession();
-  const email = session.user.email;
-  const name = session.user.name;
-  const user = await User.find({ email });
-  //console.log("user :", user);
-  if (user.length === 0) {
-    const newUser = new User({
+  try {
+    const session = await getServerSession();
+    const email = session.user.email;
+    const name = session.user.name;
+    await connectToDb();
+    const user = await User.find({ email });
+    //console.log("user :", user);
+    if (user.length === 0) {
+      const newUser = new User({
+        name,
+        email,
+        activity: {},
+      });
+      await newUser.save();
+    }
+
+    const { _id } = await User.findOne({ email });
+
+    const updatedUser = {
+      $set: {
+        [`activity.${tid}.${qid}`]: true,
+      },
+    };
+
+    await User.findByIdAndUpdate(_id, updatedUser, { new: true });
+  } catch (error) {
+    console.log("error updating activity :", error);
+  }
+};
+
+export const updateUser = async ({ name, description, image }) => {
+  try {
+    const session = await getServerSession();
+    const email = session.user.email;
+    //const name = session.user.name;
+    await connectToDb();
+    const { _id } = await User.findOne({ email });
+
+    const updatedUser = {
       name,
-      email,
+      description,
+      image,
+    };
+
+    await User.findByIdAndUpdate(_id, updatedUser, { new: true });
+  } catch (error) {
+    console.log("error updaing user");
+  }
+};
+
+export const createUser = async (session) => {
+  try {
+    //console.log(session);
+    connectToDb();
+    const newUser = new User({
+      name: session.user.name,
+      email: session.user.email,
+      points: 0,
       activity: {},
     });
     await newUser.save();
+    //console.log("newUSer :", newUser);
+  } catch (error) {
+    console.log("error creating user :", error);
   }
-
-  const { _id } = await User.findOne({ email });
-
-  const updatedUser = {
-    $set: {
-      [`activity.${tid}.${qid}`]: true,
-    },
-  };
-
-  await User.findByIdAndUpdate(_id, updatedUser, { new: true });
 };

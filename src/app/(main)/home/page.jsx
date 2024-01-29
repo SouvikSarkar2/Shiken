@@ -3,7 +3,7 @@ import SubjectCard from "@/components/main/SubjectCard";
 import { getSemesters } from "@/lib/data";
 
 const page = async ({ searchParams }) => {
-  console.log(searchParams);
+  //console.log(searchParams);
   const semesters = await getSemesters({ semester: searchParams.sm | 4 });
   //console.log(semesters);
   let result = semesters?.subjects;

@@ -1,4 +1,4 @@
-import { Semester, Topic } from "./model";
+import { Semester, Topic, User } from "./model";
 import { connectToDb } from "./util";
 
 export const getSemesters = async ({ semester }) => {
@@ -41,5 +41,15 @@ export const getQuestions = async ({ name, id }) => {
     return question;
   } catch (error) {
     console.log("Error getting Questions Data : ", error);
+  }
+};
+
+export const getUsers = async () => {
+  try {
+    await connectToDb();
+    const users = await User.find();
+    return users;
+  } catch (error) {
+    console.log("Error getting users :", error);
   }
 };

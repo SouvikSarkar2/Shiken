@@ -57,6 +57,9 @@ const userSchema = new Schema({
   name: String,
   email: String,
   activity: Object,
+  image: String,
+  description: String,
+  points: Number,
 });
 
 export const Topic =

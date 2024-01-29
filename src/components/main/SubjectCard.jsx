@@ -21,21 +21,21 @@ const SubjectCard = ({ subject }) => {
   }
   return (
     <Link href={`/topic/${subject.name}`}>
-      <Card className="w-[185px] h-[185px] m-1 sm:w-[280px] sm:h-[280px] sm:m-3 bg-[#F0F9CB] text-[#015055]">
+      <Card className="w-[175px] h-[175px] m-1 sm:w-[240px] sm:h-[240px] sm:m-3 bg-[#F0F9CB] text-[#015055]">
         <CardHeader>
           <CardTitle className="text-sm sm:text-lg">{subject.name}</CardTitle>
         </CardHeader>
         <CardContent className="flex justify-center items-center">
           <Image
-            width={160}
-            height={160}
+            width={110}
+            height={110}
             className="hidden sm:flex"
             alt="image"
             src={`/${subject.icon}`}
           ></Image>
           <Image
-            width={80}
-            height={80}
+            width={60}
+            height={60}
             className="sm:hidden"
             alt="image"
             src={`/${subject.icon}`}

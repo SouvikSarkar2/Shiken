@@ -2,11 +2,20 @@ import { User } from "@/lib/model";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
+import mongoose from "mongoose";
 
-const page = async () => {
-  const session = await getServerSession();
-  const email = session?.user?.email;
-  const user = await User.findOne({ email });
+const page = async ({ params }) => {
+  //console.log(params);
+  const _id = params.userId;
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return <div>Invalid UserId</div>;
+  }
+  const user = await User.findById(_id);
+  if (!user) {
+    return <div>No User Exists</div>;
+  }
+  //console.log(user);
+
   //console.log("user :", user);
   const description = user.description;
   const image = user?.image;
@@ -35,20 +44,13 @@ const page = async () => {
       <div className="flex flex-col sm:flex-row w-screen">
         <div className="sm:w-2/3 border-2 border-[#015055] rounded-lg p-2 m-2">
           <div className="font-semibold">Description --</div>
-          {description ? description : "Click Edit To add Description"}
+          {description ? description : "No Description Added"}
         </div>
         <div className="min-h-[100px] sm:min-h-[200px] flex justify-center items-center text-xl sm:text-2xl font-bold sm:w-1/3">
           {points ? points : "0"} TOTAL POINTS
         </div>
       </div>
-      <div className="flex justify-end w-screen p-10">
-        <Link
-          className="bg-[#015055] px-2 py-1 text-white rounded-sm"
-          href="/new"
-        >
-          Edit
-        </Link>
-      </div>
+      <div className="flex justify-end w-screen p-10"></div>
     </div>
   );
 };

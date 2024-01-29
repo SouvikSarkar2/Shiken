@@ -20,8 +20,8 @@ const Navbar = ({ session }) => {
         <MainButton type="signout" />
       </div>
 
-      <div className="fixed sm:absolute bottom-5 sm:bottom-auto sm:top-6 flex justify-center sm:justify-end w-screen sm:right-[9vw] ">
-        <div className="text-[#015055] mr-4 font-semibold flex items-center justify-between  sm:right-[15dvw] bg-[#015055] px-[2.5px] py-[2.5px] sm:px-0  rounded-full sm:rounded-sm w-[300px] h-[45px] sm:h-[33px]">
+      <div className="fixed sm:absolute bottom-5 sm:bottom-auto sm:top-7 flex justify-center sm:justify-end w-screen sm:right-[9vw] ">
+        <div className="text-[#015055] mr-4 font-semibold flex items-center justify-between  sm:right-[15dvw] bg-[#015055] sm:bg-[#E1F396] px-[2.5px] py-[2.5px] sm:px-0  rounded-full sm:rounded-sm w-[300px] h-[45px] sm:h-[33px]">
           <Link onClick={() => setIsActive("Home")} href="/home">
             {isActive === "Home" ? (
               <span className="flex gap-1 bg-white px-[16px] py-[8px] sm:py-[4.5px]  rounded-full sm:rounded-sm ">
