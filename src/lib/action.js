@@ -8,6 +8,7 @@ export const updateActivity = async ({ tid, qid }) => {
   //console.log("tid :", tid);
   //console.log("qid :", qid);
   try {
+    await connectToDb();
     const session = await getServerSession();
     const email = session.user.email;
     const name = session.user.name;
@@ -60,7 +61,7 @@ export const updateUser = async ({ name, description, image }) => {
 export const createUser = async (session) => {
   try {
     //console.log(session);
-    connectToDb();
+    await connectToDb();
     const newUser = new User({
       name: session.user.name,
       email: session.user.email,
@@ -76,6 +77,7 @@ export const createUser = async (session) => {
 
 export const toggleLikes = async ({ params }) => {
   try {
+    await connectToDb();
     const session = await getServerSession();
     const email = session.user.email;
     const user = await User.findOne({ email });
