@@ -1,4 +1,5 @@
 import { User } from "@/lib/model";
+import { connectToDb } from "@/lib/util";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import Link from "next/link";
 const page = async () => {
   const session = await getServerSession();
   const email = session?.user?.email;
+  await connectToDb();
   const user = await User.findOne({ email });
   //console.log("user :", user);
   const description = user.description;

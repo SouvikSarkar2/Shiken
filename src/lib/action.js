@@ -73,3 +73,27 @@ export const createUser = async (session) => {
     console.log("error creating user :", error);
   }
 };
+
+export const toggleLikes = async ({ params }) => {
+  try {
+    const session = await getServerSession();
+    const email = session.user.email;
+    const user = await User.findOne({ email });
+    const likedTopics = user.liked;
+    const topic = decodeURIComponent(params.tid);
+
+    const topicIdx = likedTopics.indexOf(topic);
+    if (topicIdx === -1) {
+      likedTopics.push(topic);
+      console.log(`Topic '${topic}' added to liked topics.`);
+    } else {
+      likedTopics.splice(topicIdx, 1);
+      console.log(`Topic '${topic}' removed from liked topics.`);
+    }
+    //console.log(likedTopics);
+    //console.log(user);
+    await user.save();
+  } catch (error) {
+    console.log("Error Toggling Likes :", error);
+  }
+};

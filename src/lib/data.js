@@ -11,6 +11,16 @@ export const getSemesters = async ({ semester }) => {
   }
 };
 
+export const getAllSemesters = async () => {
+  try {
+    await connectToDb();
+    const semesters = await Semester.find();
+    return semesters;
+  } catch (error) {
+    console.log("Error getting all Semesters Data");
+  }
+};
+
 export const getTopics = async ({ name }) => {
   try {
     await connectToDb();

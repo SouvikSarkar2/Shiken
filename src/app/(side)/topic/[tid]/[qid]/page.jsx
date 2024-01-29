@@ -13,7 +13,7 @@ const page = async ({ params }) => {
     return (
       <div className="bg-slate-100 h-screen justify-center flex items-center text-3xl font-bold p-8 text-[#015055] sm:text-5xl">
         More Questions Coming Soon...
-        <Link className="ml-10" href={`/topic/${name}`} prefetch={false}>
+        <Link className="ml-10" href={`/topic/${name}`}>
           <MainButton type="back" />
         </Link>
       </div>
@@ -30,7 +30,7 @@ const page = async ({ params }) => {
   return (
     <div className="flex flex-col justify-between items-center min-h-screen bg-slate-100 w-screen">
       <div className="flex justify-start p-4 w-full">
-        <Link href={`/topic/${name}`} prefetch={false}>
+        <Link href={`/topic/${name}`}>
           <MainButton type="back" />
         </Link>
       </div>

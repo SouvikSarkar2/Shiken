@@ -3,14 +3,15 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { signIn, signOut } from "next-auth/react";
-import { ArrowLeftCircle, Loader } from "lucide-react";
-import { redirect, useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { ArrowLeftCircle, Heart } from "lucide-react";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
+import { toggleLikes } from "@/lib/action";
 
 const MainButton = ({ type }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const params = useParams();
 
   async function handleSignin() {
     await signIn("google", {
@@ -22,6 +23,31 @@ const MainButton = ({ type }) => {
     await signOut("google", {
       callbackUrl: "/",
     });
+  }
+
+  async function handleLikes() {
+    await toggleLikes({ params });
+    router.refresh();
+  }
+
+  if (type === "notLiked") {
+    return (
+      <div>
+        <button className="mx-6 bg-inherit" onClick={() => handleLikes()}>
+          <Heart className="text-[#015055]" />
+        </button>
+      </div>
+    );
+  }
+
+  if (type === "liked") {
+    return (
+      <div>
+        <button className="mx-6 bg-inherit" onClick={() => handleLikes()}>
+          <Heart className="text-[#015055] fill-[#015055]" />
+        </button>
+      </div>
+    );
   }
 
   if (type === "continue")
@@ -69,7 +95,7 @@ const MainButton = ({ type }) => {
       </div>
     );
 
-  if (type === "back")
+  if (type === "back") {
     if (loading) {
       return (
         <div>
@@ -84,18 +110,22 @@ const MainButton = ({ type }) => {
         </div>
       );
     }
-  return (
-    <div>
-      <Button
-        className="bg-[#015055]"
-        onClick={() => {
-          setLoading(true);
-        }}
-      >
-        <ArrowLeftCircle />
-      </Button>
-    </div>
-  );
+    return (
+      <div>
+        <Button
+          className="bg-[#015055]"
+          onClick={() => {
+            setLoading(true);
+            setTimeout(() => {
+              router.refresh();
+            }, 100);
+          }}
+        >
+          <ArrowLeftCircle />
+        </Button>
+      </div>
+    );
+  }
 };
 
 export default MainButton;

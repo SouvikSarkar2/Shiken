@@ -60,6 +60,7 @@ const userSchema = new Schema({
   image: String,
   description: String,
   points: Number,
+  liked: [String],
 });
 
 export const Topic =
