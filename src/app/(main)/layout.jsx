@@ -12,14 +12,14 @@ export default async function MainLayout({ children }) {
     redirect("/auth/signin");
   }
   const email = session.user.email;
-  const user = await User.findOne({ email });
+  let user = await User.findOne({ email });
   // console.log(user);
   if (!user) {
-    await createUser(session);
+    user = await createUser(session);
   }
   return (
     <div className="relative ">
-      <Navbar session={session} />
+      <Navbar session={session} user={user} />
       {children}
     </div>
   );

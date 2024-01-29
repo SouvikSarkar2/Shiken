@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { BarChart2, Heart, Home, User2 } from "lucide-react";
 
-const Navbar = ({ session }) => {
+const Navbar = ({ session, user }) => {
+  //console.log(user);
   const [isActive, setIsActive] = useState("Home");
 
   return (
@@ -13,7 +14,7 @@ const Navbar = ({ session }) => {
       <div>
         <p>
           <span>Hello </span>
-          <span className="px-1"> {session.user.name}</span>
+          <span className="px-1"> {user.name}</span>
         </p>
       </div>
       <div>
