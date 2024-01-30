@@ -23,7 +23,7 @@ const page = async () => {
       </div>
       <div className="p-6 flex flex-col sm:flex-row gap-10">
         {user.liked.map((topic) => (
-          <LikedCard topic={topic} key={topic.name} />
+          <LikedCard topic={topic} key={topic} />
         ))}
       </div>
     </div>

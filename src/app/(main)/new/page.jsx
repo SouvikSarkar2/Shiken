@@ -12,7 +12,7 @@ const page = async () => {
         Edit Your User Data
       </div>
       <div className="">
-        <EditForm user={user.toObject()} />
+        <EditForm user={JSON.parse(JSON.stringify(user))} />
       </div>
     </div>
   );

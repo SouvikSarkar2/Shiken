@@ -100,3 +100,17 @@ export const toggleLikes = async ({ params }) => {
     console.log("Error Toggling Likes :", error);
   }
 };
+
+export const updatePoints = async ({ point }) => {
+  try {
+    await connectToDb();
+    const session = await getServerSession();
+    const email = session.user.email;
+    const user = await User.findOne({ email });
+    user.points += point;
+    // console.log(user);
+    await user.save();
+  } catch (error) {
+    console.log("error updating points :", error);
+  }
+};

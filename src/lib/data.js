@@ -38,14 +38,9 @@ export const getQuestions = async ({ name, id }) => {
       name,
     });
     const question = topics.questions.filter((question) => {
-      try {
-        //console.log("id :", id);
-        //console.log("question :", question);
-        return question._id.toString() === id;
-      } catch (error) {
-        console.log("Error processing question:", question, error);
-        return false;
-      }
+      //console.log("id :", id);
+      //console.log("question :", question);
+      return question._id.toString() === id;
     });
     //console.log(question);
     return question;

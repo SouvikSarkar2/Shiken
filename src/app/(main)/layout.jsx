@@ -19,7 +19,7 @@ export default async function MainLayout({ children }) {
   }
   return (
     <div className="relative ">
-      <Navbar session={session} user={user} />
+      <Navbar session={session} user={JSON.parse(JSON.stringify(user))} />
       {children}
     </div>
   );

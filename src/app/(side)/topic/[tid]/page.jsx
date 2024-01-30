@@ -1,7 +1,10 @@
 import MainButton from "@/components/Button";
 import Box from "@/components/main/Box";
+import { Button } from "@/components/ui/button";
 import { getTopics } from "@/lib/data";
 import { User } from "@/lib/model";
+import { TriangleLeftIcon } from "@radix-ui/react-icons";
+import { ArrowBigRight, ArrowBigRightDash, Triangle } from "lucide-react";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 
@@ -22,9 +25,15 @@ const page = async ({ params }) => {
 
   return (
     <div className="bg-slate-200 min-h-screen">
-      <div className="p-6">
+      <div className="p-6 flex justify-between items-center">
         <Link href={`/home`}>
           <MainButton type="back" />
+        </Link>
+        <Link href={`/topic/${name}/quiz`}>
+          <Button className="bg-[#015055] text-white gap-1">
+            QUIZ
+            <ArrowBigRightDash className="size-[25px]" />
+          </Button>
         </Link>
       </div>
       <div className="flex h-[100px] justify-center items-center text-4xl text-[#015055] font-bold">

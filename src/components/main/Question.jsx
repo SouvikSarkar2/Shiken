@@ -32,14 +32,6 @@ const Question = ({ question, options }) => {
               isSelected ? "pointer-events-none" : ""
             }`}
           >
-            {/* {options.map((option) => (
-              <div
-                key={option.id}
-                className="h-[40px] flex justify-center items-center rounded-full bg-[#e1f396] border-[#015055] border-[1.5px] hover:bg-[#015055] hover:text-white"
-              >
-                <p>{option.option}</p>
-              </div>
-            ))} */}
             <div
               onClick={() => setIsSelected(1)}
               className={`min-h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] overflow-hidden sm:hover:text-white ${
