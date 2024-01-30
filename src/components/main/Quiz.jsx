@@ -119,7 +119,7 @@ const Quiz = ({ questions }) => {
 
   if (count === limit || id === length || seconds <= 0) {
     return (
-      <div>
+      <div className="bg-[#E2E8F0] min-h-screen">
         <div className="text-2xl flex-col gap-6 font-bold text-[#015055] flex justify-center items-center min-h-[300px]">
           Quiz has ended
           <div className="flex text-lg justify-center items-center">
@@ -150,7 +150,7 @@ const Quiz = ({ questions }) => {
           </div>
         </div>
 
-        <div className=" min-h-[340px] sm:min-h-[400px] sm:w-[380px] bg-white rounded-3xl m-3 p-3 w-[340px] flex flex-col mt-[80px] sm:mt-0">
+        <div className=" min-h-[320px] sm:min-h-[400px] sm:w-[380px] bg-white rounded-3xl m-3 p-3 w-[320px] flex flex-col mt-[80px] sm:mt-0">
           <div className="font-semibold">Question {question._id}</div>
           <div>
             <p className="text-lg font-semibold py-2">{question.title}</p>
@@ -171,7 +171,7 @@ const Quiz = ({ questions }) => {
                     console.log("point :", point);
                   }
                 }}
-                className={`min-h-[40px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] overflow-hidden sm:hover:text-white ${
+                className={`min-h-[30px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] overflow-hidden sm:hover:text-white ${
                   isSelected === option.id
                     ? `${
                         isSelected === question.correctOption

@@ -11,7 +11,7 @@ const page = async ({ params }) => {
   }
 
   return (
-    <div className="h-screen bg-[#E2E8F0]">
+    <div className="min-h-screen bg-[#E2E8F0]">
       <div className="h-[100px] sm:mb-[100px] flex justify-center items-center text-2xl sm:text-4xl font-bold text-[#015055]">
         Quiz Section
       </div>

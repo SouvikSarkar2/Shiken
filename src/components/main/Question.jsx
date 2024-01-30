@@ -22,7 +22,7 @@ const Question = ({ question, options }) => {
   return (
     <div className="flex justify-start sm:justify-evenly h-full items-center flex-col sm:flex-row w-full">
       <div className="sm:flex sm:justify-center sm:items-center ">
-        <div className=" min-h-[340px] sm:min-h-[400px] sm:w-[380px] bg-white rounded-3xl m-3 p-3 w-[340px] flex flex-col mt-[80px] sm:mt-0">
+        <div className=" min-h-[340px] sm:min-h-[400px] sm:w-[380px] bg-white rounded-3xl m-3 p-3 w-[320px] flex flex-col mt-[80px] sm:mt-0">
           <div className="font-semibold">Question {question._id}</div>
           <div>
             <p className="text-lg font-semibold py-2">{question.title}</p>
