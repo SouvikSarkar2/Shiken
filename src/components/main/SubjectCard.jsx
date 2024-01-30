@@ -21,9 +21,9 @@ const SubjectCard = ({ subject }) => {
   }
   return (
     <Link href={`/topic/${subject.name}`}>
-      <Card className="w-[175px] h-[175px] m-1 sm:w-[240px] sm:h-[240px] sm:m-3 bg-[#F0F9CB] text-[#015055]">
+      <Card className="w-[145px] h-[145px] m-1 sm:w-[240px] sm:h-[240px] sm:m-3 bg-[#F0F9CB] text-[#015055]">
         <CardHeader>
-          <CardTitle className="text-sm sm:text-lg">{subject.name}</CardTitle>
+          <CardTitle className=" text-sm sm:text-lg">{subject.name}</CardTitle>
         </CardHeader>
         <CardContent className="flex justify-center items-center">
           <Image
@@ -34,8 +34,8 @@ const SubjectCard = ({ subject }) => {
             src={`/${subject.icon}`}
           ></Image>
           <Image
-            width={60}
-            height={60}
+            width={34}
+            height={34}
             className="sm:hidden"
             alt="image"
             src={`/${subject.icon}`}
