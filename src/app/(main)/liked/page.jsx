@@ -23,7 +23,7 @@ const page = async () => {
       </div>
       <div className="p-6 flex flex-col sm:flex-row gap-10">
         {user?.liked.length === 0 && (
-          <div className=" justify-center items-center flex w-screen text-xl p-6">
+          <div className=" justify-center items-center flex w-5/6 text-xl p-6">
             Continue by Adding some topic{" "}
           </div>
         )}
