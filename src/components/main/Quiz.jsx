@@ -119,7 +119,7 @@ const Quiz = ({ questions }) => {
 
   if (count === limit || id === length || seconds <= 0) {
     return (
-      <div className="bg-[#E2E8F0] min-h-screen">
+      <div className="bg-[#E2E8F0] min-h-screen ">
         <div className="text-2xl flex-col gap-6 font-bold text-[#015055] flex justify-center items-center min-h-[300px]">
           Quiz has ended
           <div className="flex text-lg justify-center items-center">
