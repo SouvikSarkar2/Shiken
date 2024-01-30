@@ -14,7 +14,7 @@ const Navbar = ({ session, user }) => {
       <div>
         <p>
           <span>Hello </span>
-          <span className="px-1"> {user.name}</span>
+          <span className="px-1 font-mono"> {user.name}</span>
         </p>
       </div>
       <div>
