@@ -47,7 +47,7 @@ const Navbar = ({ session, user }) => {
               </span>
             )}
           </Link>
-          <Link onClick={() => setIsActive("Liked")} href="liked">
+          <Link onClick={() => setIsActive("Liked")} href="/liked">
             {isActive === "Liked" ? (
               <span className="flex gap-1 bg-white px-[16px] py-[8px] rounded-full sm:rounded-sm sm:py-[4.5px]">
                 <Heart color="#015055" />
@@ -59,7 +59,7 @@ const Navbar = ({ session, user }) => {
               </span>
             )}
           </Link>
-          <Link onClick={() => setIsActive("User")} href="user">
+          <Link onClick={() => setIsActive("User")} href="/user">
             {isActive === "User" ? (
               <span className="flex gap-1  bg-white px-[16px] py-[8px] rounded-full sm:rounded-sm sm:py-[4.5px]">
                 <User2 color="#015055" />

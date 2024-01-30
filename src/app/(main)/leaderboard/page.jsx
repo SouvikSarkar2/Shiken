@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getUsers } from "@/lib/data";
+import { connectToDb } from "@/lib/util";
 import Link from "next/link";
 
 const page = async () => {

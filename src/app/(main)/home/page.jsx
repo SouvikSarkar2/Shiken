@@ -1,9 +1,11 @@
 import SearchForm from "@/components/main/SearchForm";
 import SubjectCard from "@/components/main/SubjectCard";
 import { getSemesters } from "@/lib/data";
+import { connectToDb } from "@/lib/util";
 
 const page = async ({ searchParams }) => {
   //console.log(searchParams);
+  await connectToDb();
   const semesters = await getSemesters({ semester: searchParams.sm | 4 });
   //console.log(semesters);
   let result = semesters?.subjects;
