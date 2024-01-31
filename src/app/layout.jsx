@@ -3,6 +3,7 @@ import "./globals.css";
 import SessionProvider from "@/components/main/SessionProvider";
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
+import { connectToDb } from "@/lib/util";
 
 export const metadata = {
   icons: {
@@ -13,7 +14,9 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+  await connectToDb();
   const session = await getServerSession();
+
   return (
     <html lang="en">
       <body className="h-screen bg-[#e1f396]">
