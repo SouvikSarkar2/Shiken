@@ -5,7 +5,7 @@ import { connectToDb } from "@/lib/util";
 
 const page = async ({ searchParams }) => {
   //console.log(searchParams);
-  await connectToDb();
+
   const semesters = await getSemesters({ semester: searchParams.sm | 4 });
   //console.log(semesters);
   let result = semesters?.subjects;

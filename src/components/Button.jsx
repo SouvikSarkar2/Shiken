@@ -67,10 +67,7 @@ const MainButton = ({ type }) => {
   if (type === "continue")
     return (
       <div>
-        <Button
-          onClick={() => router.push("/home")}
-          className="bg-transparent w-[130px] flex justify-between hover:bg-[#3a4e2225] "
-        >
+        <Button className="bg-transparent w-[130px] flex justify-between hover:bg-[#3a4e2225] ">
           <span> Continue </span>
           <Image src="/arrow-right.svg" height={10} width={25} alt="arrow" />
         </Button>
