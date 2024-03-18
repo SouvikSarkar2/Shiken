@@ -27,6 +27,7 @@ const page = async ({ params, searchParams }) => {
   console.log(skip);
   const name = decodeURIComponent(params.tid);
   const topic = await getTopics({ name, limit, skip });
+  const paginatedQuestions = topic.questions.slice(skip, skip + limit);
   console.log("topic :", topic);
   const session = await getServerSession();
   const email = session.user.email;
@@ -65,7 +66,7 @@ const page = async ({ params, searchParams }) => {
       </div>
       <div className="flex justify-center">
         <div className="bg-white max-w-[1366px] flex flex-wrap gap-2 justify-center p-7 rounded-3xl">
-          {topic.questions.slice(skip, skip + limit).map((question) => (
+          {paginatedQuestions.map((question) => (
             <Box
               key={question._id}
               index={question._id}
