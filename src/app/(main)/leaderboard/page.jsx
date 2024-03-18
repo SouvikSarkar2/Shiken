@@ -17,11 +17,11 @@ const page = async () => {
   //console.log("users :", users);
   return (
     <div>
-      <div className="bg-[#e1f396] h-full flex justify-center items-center text-4xl font-bold text-[#015055] ">
+      <div className="bg-[#e1f396] h-full overflow-hidden flex justify-center items-center text-4xl font-bold text-[#015055] ">
         Leaderboard
       </div>
       <div className="flex justify-center items-center w-screen">
-        <div className="border-4 rounded-xl border-[#015055] min-h-[400px] w-5/6 my-10 sm:max-w-[800px] sm:min-w-[700px] p-2 sm:p-6">
+        <div className="border-4 rounded-xl h-[500px] overflow-y-scroll border-[#015055] min-h-[400px] w-5/6 my-10 sm:max-w-[800px] sm:min-w-[700px] p-2 sm:p-6">
           <Table>
             <TableHeader>
               <TableRow>
