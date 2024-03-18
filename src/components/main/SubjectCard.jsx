@@ -20,7 +20,7 @@ const SubjectCard = ({ subject }) => {
     return <div>Loading...</div>;
   }
   return (
-    <Link href={`/topic/${subject.name}`}>
+    <Link href={`/topic/${subject.name}?page=1&limit=20`}>
       <Card className="w-[145px] h-[145px] m-1 sm:w-[240px] sm:h-[240px] sm:m-3 bg-[#F0F9CB] text-[#015055]">
         <CardHeader>
           <CardTitle className=" text-sm sm:text-lg">{subject.name}</CardTitle>
