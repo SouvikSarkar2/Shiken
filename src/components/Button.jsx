@@ -29,7 +29,6 @@ const MainButton = ({ type }) => {
   async function handleLikes() {
     const res = await toggleLikes({ params });
     router.refresh();
-    //console.log("res :", res);
     toast.success(res, {
       duration: 3000,
       style: {

@@ -7,15 +7,17 @@ import { redirect } from "next/navigation";
 
 export default async function MainLayout({ children }) {
   const session = await getServerSession();
-  console.log("Session from main :", session);
 
   if (!session) {
     redirect("/auth/signin");
   }
+
+  //Finding User
   const email = session.user.email;
   connectToDb();
   let user = await User.findOne({ email });
-  // console.log(user);
+
+  //Creating User if not exists
   if (!user) {
     user = await createUser(session);
   }

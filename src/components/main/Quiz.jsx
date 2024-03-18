@@ -32,7 +32,6 @@ const Quiz = ({ questions }) => {
 
   let question = questions?.questions[id];
   let options = question?.options;
-  //console.log(question);
   const length = questions.questions.length;
 
   const router = useRouter();
@@ -41,15 +40,9 @@ const Quiz = ({ questions }) => {
     question = questions.questions[id];
     setIsSelected(null);
   }, [id]);
-  /* console.log("id :", id);
-  console.log("point :", point);
-  console.log("count :", count); */
 
   const handleChange = (e) => {
-    //console.log(e.target.value);
     const num = parseInt(e.target.value, 10);
-    //console.log("num :", num);
-    //console.log("id :", id);
     if (isNaN(num) || num <= 0) {
       setId(0);
     } else {
@@ -168,7 +161,6 @@ const Quiz = ({ questions }) => {
                   setIsSelected(option.id);
                   if (option.id === question.correctOption) {
                     setPoint(point + 5);
-                    console.log("point :", point);
                   }
                 }}
                 className={`min-h-[30px] flex justify-center items-center rounded-full  border-[#015055] border-[1.5px] sm:hover:bg-[#015055] overflow-hidden sm:hover:text-white ${

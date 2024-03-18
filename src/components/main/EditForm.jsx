@@ -11,7 +11,6 @@ import { useRouter } from "next/navigation";
 
 export default function EditForm({ user }) {
   const router = useRouter();
-  //console.log("user :", user);
   const {
     register,
     handleSubmit,

@@ -10,25 +10,18 @@ import Link from "next/link";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
 const page = async ({ params, searchParams }) => {
-  // console.log(searchParams);
   const page = parseInt(searchParams.page);
   const limit = parseInt(searchParams.limit);
-  console.log(page);
-  console.log(limit);
   const skip = (page - 1) * limit;
-  console.log(skip);
   const name = decodeURIComponent(params.tid);
   const topic = await getTopics({ name, limit, skip });
   const paginatedQuestions = topic.questions.slice(skip, skip + limit);
-  console.log("topic :", topic);
   const session = await getServerSession();
   const email = session.user.email;
   const user = await User.findOne({ email });
@@ -36,8 +29,6 @@ const page = async ({ params, searchParams }) => {
   const top = decodeURIComponent(params.tid);
   const topicIdx = likedTopics.indexOf(top);
   const len = topic.questions.length;
-  console.log(len);
-  //console.log("topic :", topic);
 
   if (!topic) {
     return <div>Loading...</div>;

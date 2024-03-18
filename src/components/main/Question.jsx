@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 const Question = ({ question, options }) => {
   const [isSelected, setIsSelected] = useState(null);
   const params = useParams();
-  //console.log("params :", params);
   const tid = decodeURIComponent(params.tid);
   const qid = params.qid;
   useEffect(() => {

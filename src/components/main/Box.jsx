@@ -7,7 +7,6 @@ const Box = async ({ index, name, id }) => {
   const email = session?.user?.email;
   const userData = await User.findOne({ email });
   const isAttempted = userData?.activity?.[name]?.[id];
-  //console.log(isAttempted);
   return (
     <Link href={`/topic/${name}/${id}`}>
       <div

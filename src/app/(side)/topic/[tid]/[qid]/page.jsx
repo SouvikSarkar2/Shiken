@@ -4,8 +4,6 @@ import { getQuestions } from "@/lib/data";
 import Link from "next/link";
 
 const page = async ({ params }) => {
-  //console.log(params);
-
   const name = decodeURIComponent(params.tid);
   const data = await getQuestions({ name, id: params.qid });
 
@@ -22,7 +20,6 @@ const page = async ({ params }) => {
 
   const question = data[0];
   const options = question.options;
-  //console.log(question);
 
   if (!data) {
     return <div>Loading...</div>;

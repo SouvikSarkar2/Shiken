@@ -6,7 +6,6 @@ import { useState } from "react";
 import { BarChart2, Heart, Home, User2 } from "lucide-react";
 
 const Navbar = ({ session, user }) => {
-  //console.log(user);
   const [isActive, setIsActive] = useState("Home");
 
   return (

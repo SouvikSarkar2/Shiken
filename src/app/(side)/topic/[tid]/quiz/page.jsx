@@ -2,10 +2,8 @@ import Quiz from "@/components/main/Quiz";
 import { getTopics } from "@/lib/data";
 
 const page = async ({ params }) => {
-  //   console.log("params", params);
   const name = decodeURIComponent(params.tid);
   const questions = await getTopics({ name });
-  //console.log(question);
   if (!questions) {
     return <div>Loading...</div>;
   }

@@ -5,7 +5,6 @@ import Link from "next/link";
 import mongoose from "mongoose";
 
 const page = async ({ params }) => {
-  //console.log(params);
   const _id = params.userId;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return <div>Invalid UserId</div>;
@@ -14,9 +13,6 @@ const page = async ({ params }) => {
   if (!user) {
     return <div>No User Exists</div>;
   }
-  //console.log(user);
-
-  //console.log("user :", user);
   const description = user.description;
   const image = user?.image;
   const points = user?.points;

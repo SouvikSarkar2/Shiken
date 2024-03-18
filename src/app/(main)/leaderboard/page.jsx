@@ -14,7 +14,7 @@ import Link from "next/link";
 const page = async () => {
   const users = await getUsers();
   users.sort((a, b) => b.points - a.points);
-  //console.log("users :", users);
+
   return (
     <div>
       <div className="bg-[#e1f396] h-full overflow-hidden flex justify-center items-center text-4xl font-bold text-[#015055] ">
@@ -37,7 +37,6 @@ const page = async () => {
             </TableHeader>
             <TableBody>
               {users.map((user, index) => {
-                //console.log("user :", user);
                 return (
                   <TableRow key={user._id}>
                     <TableCell className="font-medium sm:text-lg">

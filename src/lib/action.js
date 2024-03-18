@@ -5,8 +5,6 @@ import { User } from "./model";
 import { connectToDb } from "./util";
 
 export const updateActivity = async ({ tid, qid }) => {
-  //console.log("tid :", tid);
-  //console.log("qid :", qid);
   try {
     await connectToDb();
     const session = await getServerSession();
@@ -14,7 +12,6 @@ export const updateActivity = async ({ tid, qid }) => {
     const name = session.user.name;
     await connectToDb();
     const user = await User.find({ email });
-    //console.log("user :", user);
     if (user.length === 0) {
       const newUser = new User({
         name,
@@ -60,7 +57,6 @@ export const updateUser = async ({ name, description, image }) => {
 
 export const createUser = async (session) => {
   try {
-    //console.log(session);
     await connectToDb();
     const newUser = new User({
       name: session.user.name,
@@ -69,7 +65,6 @@ export const createUser = async (session) => {
       activity: {},
     });
     await newUser.save();
-    //console.log("newUSer :", newUser);
   } catch (error) {
     console.log("error creating user :", error);
   }
@@ -94,8 +89,6 @@ export const toggleLikes = async ({ params }) => {
       await user.save();
       return `${topic} removed from liked topics.`;
     }
-    //console.log(likedTopics);
-    //console.log(user);
   } catch (error) {
     console.log("Error Toggling Likes :", error);
   }
@@ -108,7 +101,7 @@ export const updatePoints = async ({ point }) => {
     const email = session.user.email;
     const user = await User.findOne({ email });
     user.points += point;
-    // console.log(user);
+
     await user.save();
   } catch (error) {
     console.log("error updating points :", error);

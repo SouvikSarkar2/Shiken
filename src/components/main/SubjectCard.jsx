@@ -15,7 +15,6 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 
 const SubjectCard = ({ subject }) => {
-  //console.log(subject.name);
   if (!subject) {
     return <div>Loading...</div>;
   }

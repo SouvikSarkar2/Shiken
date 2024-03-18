@@ -8,7 +8,7 @@ const SearchForm = () => {
   const router = useRouter();
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log("e", e.target[0].value);
+
     if (e.target[0].value && e.target[1].value) {
       router.push(`home?sm=${e.target[0].value}&&sb=${e.target[1].value}`);
       return;

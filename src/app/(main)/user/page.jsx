@@ -9,7 +9,6 @@ const page = async () => {
   const email = session?.user?.email;
   await connectToDb();
   const user = await User.findOne({ email });
-  //console.log("user :", user);
   const description = user.description;
   const image = user?.image;
   const points = user?.points;
